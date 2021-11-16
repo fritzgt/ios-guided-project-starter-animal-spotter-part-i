@@ -3,7 +3,7 @@
 //  AnimalSpotter
 //
 //  Created by Ben Gohlke on 4/16/19.
-//  Copyright © 2019 Lambda School. All rights reserved.
+//  Copyright © 2019 BloomTech. All rights reserved.
 //
 
 import Foundation
