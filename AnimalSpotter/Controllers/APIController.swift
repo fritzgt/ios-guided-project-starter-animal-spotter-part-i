@@ -20,6 +20,8 @@ final class APIController {
         case noData
     }
     
+    // API docs: https://github.com/bloominstituteoftechnology/ios-animal-spotter-api
+    
     private let baseURL = URL(string: "https://lambdaanimalspotter.herokuapp.cloud/api")!
     private lazy var signUpURL = baseURL.appendingPathComponent("/users/signup")
     private lazy var signInURL = baseURL.appendingPathComponent("/users/login")
