@@ -20,7 +20,7 @@ final class APIController {
         case noData
     }
     
-    private let baseURL = URL(string: "https://lambdaanimalspotter.vapor.cloud/api")!
+    private let baseURL = URL(string: "https://lambdaanimalspotter.herokuapp.cloud/api")!
     private lazy var signUpURL = baseURL.appendingPathComponent("/users/signup")
     private lazy var signInURL = baseURL.appendingPathComponent("/users/login")
     
