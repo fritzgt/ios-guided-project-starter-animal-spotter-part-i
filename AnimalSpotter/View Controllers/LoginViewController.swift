@@ -68,10 +68,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             do {
                 let success = try result.get()
                 if success {
-                    self.showAlert()
+                    self.showAlert(success: true)
                 }
             } catch {
                 print("Error signing up: \(error)")
+                self.showAlert(success: false)
             }
         })
     }
@@ -100,12 +101,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
-    private func showAlert() {
+    private func showAlert(success: Bool) {
         let successTitle = "Sign Up Successful"
         let successMessage = "Now please log in"
         
+        let failedTitle = "Sign Up Unsuccessful"
+        let failedMessage = "Try again later."
+        
+        let title = success ? successTitle : failedTitle
+        let message = success ? successMessage : failedMessage
+        
         DispatchQueue.main.async {
-            let alertController = UIAlertController(title: successTitle, message: successMessage, preferredStyle: .alert)
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
             
             let alertAction = UIAlertAction(title: "Ok", style: .default)
             alertController.addAction(alertAction)
