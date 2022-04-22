@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0468C6B528121F00003DF9E1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468C6B428121F00003DF9E1 /* User.swift */; };
+		0468C6B828123FD3003DF9E1 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468C6B728123FD3003DF9E1 /* Bearer.swift */; };
 		CE414D6F2461BC8A00E54457 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE414D6E2461BC8A00E54457 /* SceneDelegate.swift */; };
 		CEB8F70C236B8D3600455692 /* AnimalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8F70B236B8D3600455692 /* AnimalDetailViewController.swift */; };
 		CEDCA57B22668AB2009EA535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCA57A22668AB2009EA535 /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		0468C6B428121F00003DF9E1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0468C6B728123FD3003DF9E1 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 		CE414D6E2461BC8A00E54457 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CEB8F70B236B8D3600455692 /* AnimalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetailViewController.swift; sourceTree = "<group>"; };
 		CEDCA57722668AB2009EA535 /* AnimalSpotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalSpotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				0468C6B428121F00003DF9E1 /* User.swift */,
+				0468C6B728123FD3003DF9E1 /* Bearer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0468C6B828123FD3003DF9E1 /* Bearer.swift in Sources */,
 				CEB8F70C236B8D3600455692 /* AnimalDetailViewController.swift in Sources */,
 				CEDCA59A226697BD009EA535 /* APIController.swift in Sources */,
 				CEDCA59122668D0F009EA535 /* LoginViewController.swift in Sources */,

@@ -29,7 +29,7 @@ final class APIController {
     
     // create function for sign up
     func signUp(with user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
-        var request = postRequest(for: baseURL)
+        var request = postRequest(for: signUpURL)
         
         do {
             //Convert the JSON data into an string
