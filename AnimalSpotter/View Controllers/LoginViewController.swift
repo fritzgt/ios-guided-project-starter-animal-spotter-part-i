@@ -51,13 +51,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private func handleLoginType(user: User) {
         switch loginType {
         case .signUp:
-            handleSignUp(with: user)
+            signUp(with: user)
         case .signIn:
-            handleSignIn(with: user)
+            signIn(with: user)
         }
     }
     
-    private func handleSignUp(with user: User) {
+    private func signUp(with user: User) {
         apiController?.signUp(with: user, completion: { result in
             do {
                 let success = try result.get()
@@ -70,8 +70,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
-    private func handleSignIn(with user: User) {
-        
+    private func signIn(with user: User) {
+        apiController?.signIn(with: user, completion: { result in
+            do {
+                let success = try result.get()
+                if success {
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true)
+                    }
+                }
+            } catch {
+                if let error = error as? APIController.NetworkError {
+                    switch error {
+                    case .failedSignIn:
+                        print("Error signing in: \(error)")
+                    case .noData, .noToken:
+                        print("No data received")
+                    default:
+                        print("Other error occur during sign in.")
+                    }
+                }
+            }
+        })
     }
     
     private func showAlert(for type: Bool) {
