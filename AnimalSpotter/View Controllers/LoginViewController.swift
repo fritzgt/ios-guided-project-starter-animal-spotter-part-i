@@ -163,6 +163,10 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             let bearer = Bearer(token: userIdentifier)
             apiController?.bearer = bearer
             
+            DispatchQueue.main.async {
+                self.dismiss(animated: true)
+            }
+            
             if let fullName = fullName, let email = email {
                 print("✅ Name: \(fullName) email: \(email)")
             }

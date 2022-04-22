@@ -14,7 +14,7 @@
             <objects>
                 <viewController id="fYv-hU-wkc" customClass="LoginViewController" customModule="AnimalSpotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9kz-X3-jPY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="gAX-fG-ngs">
@@ -68,6 +68,7 @@
                             <constraint firstItem="HCO-4c-Ipd" firstAttribute="trailing" secondItem="gAX-fG-ngs" secondAttribute="trailing" constant="16" id="rnH-TP-Ujs"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="kBn-aC-51G"/>
                     <connections>
                         <outlet property="authStackView" destination="pba-td-Oxb" id="Cwb-yF-oQ7"/>
                         <outlet property="loginTypeSegmentedControl" destination="aW1-IY-ebQ" id="0dN-Lw-9ba"/>
@@ -123,7 +124,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="fYv-hU-wkc" kind="presentation" identifier="LoginViewModalSegue" id="Tc6-TK-qmq"/>
+                        <segue destination="fYv-hU-wkc" kind="presentation" identifier="LoginViewModalSegue" modalPresentationStyle="fullScreen" id="Tc6-TK-qmq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAK-9d-Sq1" userLabel="First Responder" sceneMemberID="firstResponder"/>
