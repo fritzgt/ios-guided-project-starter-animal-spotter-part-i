@@ -158,19 +158,16 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             
             let userIdentifier = appleIDCredential.user
             let fullName = appleIDCredential.fullName
-            let email = appleIDCredential.email
-            
             let bearer = Bearer(token: userIdentifier)
-            apiController?.bearer = bearer
             
+            apiController?.bearer = bearer
+            if let fullName = fullName {
+                apiController?.fullName = fullName
+            }
+
             DispatchQueue.main.async {
                 self.dismiss(animated: true)
             }
-            
-            if let fullName = fullName, let email = email {
-                print("✅ Name: \(fullName) email: \(email)")
-            }
-            
         }
         
         func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {

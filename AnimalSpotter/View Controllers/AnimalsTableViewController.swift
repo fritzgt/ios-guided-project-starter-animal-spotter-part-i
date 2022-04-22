@@ -28,6 +28,12 @@ class AnimalsTableViewController: UITableViewController {
         // transition to login view if conditions require
         if apiController.bearer == nil {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
+        }else{
+            DispatchQueue.main.async {
+                if let fullName = self.apiController.fullName, let givenName = fullName.givenName {
+                    self.navigationItem.title = givenName
+                }
+            }
         }
     }
 

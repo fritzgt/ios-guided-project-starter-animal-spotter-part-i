@@ -30,6 +30,7 @@ final class APIController {
     private lazy var signInURL = baseURL.appendingPathComponent("/users/login")
     
     var bearer: Bearer?
+    var fullName: PersonNameComponents?
     
     // create function for sign up
     func signUp(with user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
