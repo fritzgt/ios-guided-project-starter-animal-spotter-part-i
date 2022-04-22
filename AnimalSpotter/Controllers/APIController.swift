@@ -27,6 +27,17 @@ final class APIController {
     private lazy var signInURL = baseURL.appendingPathComponent("/users/login")
     
     // create function for sign up
+    func signUp(with user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+        
+    }
+    
+    // Helper method for posting
+    func postRequest(for url: URL) -> URLRequest {
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        return request
+    }
     
     // create function for sign in
     
