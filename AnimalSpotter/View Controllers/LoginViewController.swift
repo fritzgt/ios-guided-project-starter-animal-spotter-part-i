@@ -138,6 +138,39 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func handleAuthorizationAppleIDButtonPress() {
+        let request = ASAuthorizationAppleIDProvider().createRequest()
+        request.requestedScopes = [.fullName, .email]
         
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        
+        controller.delegate = self
+        
+        controller.performRequests()
+    }
+}
+
+//MARK: - ASAuthorizationControllerDelegate
+
+extension LoginViewController: ASAuthorizationControllerDelegate {
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            
+            let userIdentifier = appleIDCredential.user
+            let fullName = appleIDCredential.fullName
+            let email = appleIDCredential.email
+            
+            let bearer = Bearer(token: userIdentifier)
+            apiController?.bearer = bearer
+            
+            if let fullName = fullName, let email = email {
+                print("✅ Name: \(fullName) email: \(email)")
+            }
+            
+        }
+        
+        func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+            
+        }
     }
 }
