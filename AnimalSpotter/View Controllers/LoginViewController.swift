@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuthenticationServices
 
 enum LoginType {
     case signUp
@@ -26,7 +27,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setuoProviderLoginView()
         signInButton.backgroundColor = UIColor(hue: 190/360, saturation: 70/100, brightness: 80/100, alpha: 1.0)
             signInButton.tintColor = .white
             signInButton.layer.cornerRadius = 8.0
@@ -126,5 +127,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.loginType = .signIn
         self.loginTypeSegmentedControl.selectedSegmentIndex = 1
         self.signInButton.setTitle("Sign In", for: .normal)
+    }
+    
+    //MARK: - Sign in with Apple
+    
+    private func setuoProviderLoginView() {
+        let button = ASAuthorizationAppleIDButton()
+        button.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
+        self.authStackView.addArrangedSubview(button)
+    }
+    
+    @objc func handleAuthorizationAppleIDButtonPress() {
+        
     }
 }

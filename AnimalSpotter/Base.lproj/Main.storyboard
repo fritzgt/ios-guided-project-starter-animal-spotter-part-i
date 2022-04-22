@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="gAX-fG-ngs">
-                                <rect key="frame" x="16" y="84" width="382" height="188"/>
+                                <rect key="frame" x="16" y="84" width="382" height="172"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aW1-IY-ebQ">
                                         <rect key="frame" x="123.5" y="0.0" width="135" height="32"/>
@@ -40,21 +40,22 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8d-j0-sqF">
-                                        <rect key="frame" x="40" y="138" width="302" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="BYh-iV-Yzf"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="Sign Up"/>
-                                        <connections>
-                                            <action selector="buttonTapped:" destination="fYv-hU-wkc" eventType="touchUpInside" id="J2V-WN-v40"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="pba-td-Oxb">
+                                        <rect key="frame" x="159" y="138" width="64" height="34"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8d-j0-sqF">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <state key="normal" title="Sign Up"/>
+                                                <connections>
+                                                    <action selector="buttonTapped:" destination="fYv-hU-wkc" eventType="touchUpInside" id="J2V-WN-v40"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="qpz-u1-zcQ" secondAttribute="trailing" id="5h7-cl-LcI"/>
-                                    <constraint firstAttribute="trailing" secondItem="l8d-j0-sqF" secondAttribute="trailing" constant="40" id="Shk-jh-hTj"/>
                                     <constraint firstAttribute="trailing" secondItem="Vga-nG-cJ8" secondAttribute="trailing" id="tL7-jY-TbG"/>
                                 </constraints>
                             </stackView>
@@ -68,7 +69,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="authStackView" destination="gAX-fG-ngs" id="BGi-hC-H6d"/>
+                        <outlet property="authStackView" destination="pba-td-Oxb" id="Cwb-yF-oQ7"/>
                         <outlet property="loginTypeSegmentedControl" destination="aW1-IY-ebQ" id="0dN-Lw-9ba"/>
                         <outlet property="passwordTextField" destination="Vga-nG-cJ8" id="GHE-ry-7Dt"/>
                         <outlet property="signInButton" destination="l8d-j0-sqF" id="K4a-ls-h2d"/>
