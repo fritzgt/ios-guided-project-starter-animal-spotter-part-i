@@ -25,7 +25,7 @@ final class APIController {
     
     // API docs: https://github.com/bloominstituteoftechnology/ios-animal-spotter-api
     
-    private let baseURL = URL(string: "https://lambdaanimalspotter.herokuapp.cloud/api")!
+    private let baseURL = URL(string: "https://lambdaanimalspotter.herokuapp.com/api")!
     private lazy var signUpURL = baseURL.appendingPathComponent("/users/signup")
     private lazy var signInURL = baseURL.appendingPathComponent("/users/login")
     
@@ -43,13 +43,13 @@ final class APIController {
             
             URLSession.shared.dataTask(with: request) { _, response, error in
                 if let error = error {
-                    print("Sign up failed with error: \(error)")
+                    print("🚨 Sign up failed with error: \(error)")
                     completion(.failure(.failedSignUp))
                     return
                 }
                 
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200  else {
-                    print("Sign up was unsucessful")
+                    print("🚨 Sign up was unsucessful")
                     completion(.failure(.failedSignUp))
                     return
                 }
@@ -59,7 +59,7 @@ final class APIController {
             }.resume()
             
         } catch  {
-            print("🚨 \(error)")
+            print("🚨 Error: \(error)")
             completion(.failure(.failedSignUp))
             return
         }
@@ -89,14 +89,14 @@ final class APIController {
                 }
                 
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    print("Sign in unsucessful")
+                    print("🚨 Sign in unsucessful")
                     completion(.failure(.failedSignIn))
                     return
                 }
                 
                 
                 guard let data = data else {
-                    print("Data was not received")
+                    print("🚨 Data was not received")
                     completion(.failure(.noData))
                     return
                 }
@@ -105,7 +105,7 @@ final class APIController {
                     self.bearer = try JSONDecoder().decode(Bearer.self, from: data)
                     completion(.success(true))
                 }catch{
-                   print("Error decoding bearer: \(error)")
+                   print("🚨 Error decoding bearer: \(error)")
                     completion(.failure(.noToken))
                 }
             }.resume()
