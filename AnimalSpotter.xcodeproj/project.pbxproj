@@ -23,6 +23,7 @@
 /* Begin PBXFileReference section */
 		0468C6B428121F00003DF9E1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0468C6B728123FD3003DF9E1 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
+		0468C6B92813144C003DF9E1 /* AnimalSpotter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnimalSpotter.entitlements; sourceTree = "<group>"; };
 		CE414D6E2461BC8A00E54457 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CEB8F70B236B8D3600455692 /* AnimalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetailViewController.swift; sourceTree = "<group>"; };
 		CEDCA57722668AB2009EA535 /* AnimalSpotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalSpotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +84,7 @@
 		CEDCA57922668AB2009EA535 /* AnimalSpotter */ = {
 			isa = PBXGroup;
 			children = (
+				0468C6B92813144C003DF9E1 /* AnimalSpotter.entitlements */,
 				CEDCA59722669673009EA535 /* Application */,
 				CE414D6D2461BB5300E54457 /* Controllers */,
 				CEDCA5982266967E009EA535 /* View Controllers */,
@@ -338,6 +340,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AnimalSpotter/AnimalSpotter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N3P8URX7UV;
 				INFOPLIST_FILE = AnimalSpotter/Info.plist;
@@ -357,6 +360,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AnimalSpotter/AnimalSpotter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N3P8URX7UV;
 				INFOPLIST_FILE = AnimalSpotter/Info.plist;
