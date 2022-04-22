@@ -36,9 +36,65 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         // perform login or sign up operation based on loginType
+        if let userName = usernameTextField.text, !userName.isEmpty, let password = passwordTextField.text, !password.isEmpty {
+            let user = User(username: userName, password: password)
+            handleLoginType(user: user)
+        }
     }
     
     @IBAction func signInTypeChanged(_ sender: UISegmentedControl) {
         // switch UI between login types
+    }
+    
+    //MARK: - Private helper methods
+    
+    private func handleLoginType(user: User) {
+        switch loginType {
+        case .signUp:
+            handleSignUp(with: user)
+        case .signIn:
+            handleSignIn(with: user)
+        }
+    }
+    
+    private func handleSignUp(with user: User) {
+        apiController?.signUp(with: user, completion: { result in
+            do {
+                let success = try result.get()
+                if success {
+                    self.showAlert(for: success)
+                }
+            } catch {
+                print("Error signing up: \(error)")
+            }
+        })
+    }
+    
+    private func handleSignIn(with user: User) {
+        
+    }
+    
+    private func showAlert(for type: Bool) {
+        let successTitle = "Sign Up Successful"
+        let successMessage = "Now please log in"
+        
+        let title = type ? successTitle : successTitle
+        let message = type ? successMessage : successMessage
+        
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            
+            let alertAction = UIAlertAction(title: "Ok", style: .default)
+            alertController.addAction(alertAction)
+            self.present(alertController, animated: true) {
+                self.updateLoginType()
+            }
+        }
+    }
+    
+    private func updateLoginType() {
+        self.loginType = .signIn
+        self.loginTypeSegmentedControl.selectedSegmentIndex = 1
+        self.signInButton.setTitle("Sign In", for: .normal)
     }
 }
