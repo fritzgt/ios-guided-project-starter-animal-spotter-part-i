@@ -106,14 +106,13 @@ final class APIController {
                     completion(.success(true))
                 }catch{
                    print("Error decoding bearer: \(error)")
-                    
+                    completion(.failure(.noToken))
                 }
             }.resume()
             
         } catch {
             print("🚨 \(error)")
-            completion(.failure(.noToken))
-            return
+            completion(.failure(.failedSignIn))
         }
     }
     
