@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="gAX-fG-ngs">
-                                <rect key="frame" x="16" y="84" width="382" height="172"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="gAX-fG-ngs">
+                                <rect key="frame" x="16" y="84" width="382" height="210"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aW1-IY-ebQ">
                                         <rect key="frame" x="123.5" y="0.0" width="135" height="32"/>
@@ -31,22 +31,27 @@
                                             <action selector="signInTypeChanged:" destination="fYv-hU-wkc" eventType="valueChanged" id="fhB-UB-iJx"/>
                                         </connections>
                                     </segmentedControl>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qpz-u1-zcQ">
-                                        <rect key="frame" x="0.0" y="44" width="382" height="34"/>
-                                        <color key="backgroundColor" red="0.34901961679999999" green="0.37647059560000001" blue="0.44705885649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="username"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vga-nG-cJ8">
-                                        <rect key="frame" x="0.0" y="91" width="382" height="34"/>
-                                        <color key="backgroundColor" red="0.34157839420000002" green="0.37493714690000002" blue="0.45596241949999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
-                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="JDS-Zw-eEW">
+                                        <rect key="frame" x="0.0" y="63" width="382" height="81"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qpz-u1-zcQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
+                                                <color key="backgroundColor" red="0.34901961679999999" green="0.37647059560000001" blue="0.44705885649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="username"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vga-nG-cJ8">
+                                                <rect key="frame" x="0.0" y="47" width="382" height="34"/>
+                                                <color key="backgroundColor" red="0.34157839420000002" green="0.37493714690000002" blue="0.45596241949999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="pba-td-Oxb">
-                                        <rect key="frame" x="0.0" y="138" width="382" height="34"/>
+                                        <rect key="frame" x="0.0" y="176" width="382" height="34"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8d-j0-sqF">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
@@ -63,10 +68,10 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="qpz-u1-zcQ" secondAttribute="trailing" id="5h7-cl-LcI"/>
+                                    <constraint firstAttribute="trailing" secondItem="JDS-Zw-eEW" secondAttribute="trailing" id="5ah-PU-zzW"/>
                                     <constraint firstAttribute="trailing" secondItem="pba-td-Oxb" secondAttribute="trailing" id="Kez-tj-OMd"/>
                                     <constraint firstItem="pba-td-Oxb" firstAttribute="leading" secondItem="gAX-fG-ngs" secondAttribute="leading" id="fOX-Pa-UTm"/>
-                                    <constraint firstAttribute="trailing" secondItem="Vga-nG-cJ8" secondAttribute="trailing" id="tL7-jY-TbG"/>
+                                    <constraint firstItem="JDS-Zw-eEW" firstAttribute="leading" secondItem="gAX-fG-ngs" secondAttribute="leading" id="lLJ-BS-ucP"/>
                                 </constraints>
                             </stackView>
                         </subviews>
