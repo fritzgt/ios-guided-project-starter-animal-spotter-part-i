@@ -43,7 +43,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signInTypeChanged(_ sender: UISegmentedControl) {
-        // switch UI between login types
+        if sender.selectedSegmentIndex == 0 {
+            loginType = .signUp
+            signInButton.setTitle("Sign Up", for: .normal)
+        } else {
+            loginType = .signIn
+            signInButton.setTitle("Sign In", for: .normal)
+        }
     }
     
     //MARK: - Private helper methods
