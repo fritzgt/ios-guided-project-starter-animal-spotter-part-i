@@ -19,6 +19,8 @@ final class APIController {
     enum NetworkError: Error {
         case noData
         case failedSignUp
+        case failedSignIn
+        case noToken
     }
     
     // API docs: https://github.com/bloominstituteoftechnology/ios-animal-spotter-api
@@ -26,6 +28,8 @@ final class APIController {
     private let baseURL = URL(string: "https://lambdaanimalspotter.herokuapp.cloud/api")!
     private lazy var signUpURL = baseURL.appendingPathComponent("/users/signup")
     private lazy var signInURL = baseURL.appendingPathComponent("/users/login")
+    
+    var bearer: Bearer?
     
     // create function for sign up
     func signUp(with user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
@@ -56,6 +60,8 @@ final class APIController {
             
         } catch  {
             print("🚨 \(error)")
+            completion(.failure(.failedSignUp))
+            return
         }
     }
     
@@ -68,6 +74,48 @@ final class APIController {
     }
     
     // create function for sign in
+    func signIn(with user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+        var request = postRequest(for: signInURL)
+        
+        do {
+            let jsonData = try JSONEncoder().encode(user)
+            request.httpBody = jsonData
+            
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    completion(.failure(.failedSignIn))
+                    print("Sign in failed with error: \(error)")
+                    return
+                }
+                
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    print("Sign in unsucessful")
+                    completion(.failure(.failedSignIn))
+                    return
+                }
+                
+                
+                guard let data = data else {
+                    print("Data was not received")
+                    completion(.failure(.noData))
+                    return
+                }
+                
+                do{
+                    self.bearer = try JSONDecoder().decode(Bearer.self, from: data)
+                    completion(.success(true))
+                }catch{
+                   print("Error decoding bearer: \(error)")
+                    
+                }
+            }.resume()
+            
+        } catch {
+            print("🚨 \(error)")
+            completion(.failure(.noToken))
+            return
+        }
+    }
     
     // create function for fetching all animal names
     
