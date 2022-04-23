@@ -28,7 +28,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProviderLoginView()
-        styleUI()
+        setupUI()
     }
     
     // MARK: - Action Handlers
@@ -127,7 +127,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.signInButton.setTitle("Sign In", for: .normal)
     }
     
-    func styleUI()  {
+    func setupUI()  {
         //Button
         signInButton.tintColor = .white
         signInButton.layer.cornerRadius = 5.0
