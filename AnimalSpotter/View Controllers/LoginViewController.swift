@@ -20,7 +20,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var loginTypeSegmentedControl: UISegmentedControl!
     @IBOutlet private weak var signInButton: UIButton!
-    @IBOutlet private weak var authStackView: UIStackView!
+    @IBOutlet private weak var buttonsStackView: UIStackView!
     
     var apiController: APIController?
     var loginType = LoginType.signUp
@@ -150,7 +150,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private func setupProviderLoginView() {
         let button = ASAuthorizationAppleIDButton()
         button.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
-        self.authStackView.addArrangedSubview(button)
+        self.buttonsStackView.addArrangedSubview(button)
     }
     
     @objc func handleAuthorizationAppleIDButtonPress() {

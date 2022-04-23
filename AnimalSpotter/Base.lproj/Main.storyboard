@@ -85,7 +85,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="kBn-aC-51G"/>
                     <connections>
-                        <outlet property="authStackView" destination="pba-td-Oxb" id="Cwb-yF-oQ7"/>
+                        <outlet property="buttonsStackView" destination="pba-td-Oxb" id="75J-na-yDI"/>
                         <outlet property="loginTypeSegmentedControl" destination="aW1-IY-ebQ" id="0dN-Lw-9ba"/>
                         <outlet property="passwordTextField" destination="Vga-nG-cJ8" id="GHE-ry-7Dt"/>
                         <outlet property="signInButton" destination="l8d-j0-sqF" id="K4a-ls-h2d"/>
