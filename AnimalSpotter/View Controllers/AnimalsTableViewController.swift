@@ -20,6 +20,10 @@ class AnimalsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+//        if let token = UserDefaults.standard.string(forKey: "lambdaanimalspotterBearer"){
+//            apiController.bearer = Bearer(token: token)
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

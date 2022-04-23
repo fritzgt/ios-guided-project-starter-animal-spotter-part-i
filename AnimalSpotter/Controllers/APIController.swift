@@ -29,7 +29,11 @@ final class APIController {
     private lazy var signUpURL = baseURL.appendingPathComponent("/users/signup")
     private lazy var signInURL = baseURL.appendingPathComponent("/users/login")
     
-    var bearer: Bearer?
+    var bearer: Bearer? {
+        didSet{
+//            UserDefaults.standard.set(bearer?.token, forKey: "lambdaanimalspotterBearer")
+        }
+    }
     var fullName: PersonNameComponents?
     
     // create function for sign up
